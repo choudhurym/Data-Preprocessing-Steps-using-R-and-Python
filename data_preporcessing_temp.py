@@ -32,6 +32,7 @@ imputer = imputer.fit(X[:, 1:3]) #by writing 'imputer' object in this line, we j
 X[:, 1:3] = imputer.transform(X[:, 1:3]) #we are replacing missing data by the mean of the column
 
 #Encoding catergorial variable
+#OneHotEncoder class is for dummy encoding
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 #Encoding for independent column called 'Country' 
 labelencoder_X = LabelEncoder()
@@ -48,6 +49,7 @@ in this case you can easily compare becuase L > M > S. However, in this particul
 if you categorize by 1 for France, 2 for Germany and 3 for Spain. Thus, the technique is to compare between these 3 categories by filling with dummy variables."""
 
 #Splitting the dataset into the training set and test set
+#we used random state because we don't want random value
 from sklearn.cross_validation import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
 
