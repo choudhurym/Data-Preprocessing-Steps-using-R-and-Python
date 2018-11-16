@@ -22,7 +22,7 @@ X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, 3].values
 
 # Taking care of missing data
-#Imputer is a class
+#Imputer is a class and sklearn is from a scikit-learn library
 #To fill the missing data with median and most_frquent value we just only need to modify strategy
 from sklearn.preprocessing import Imputer
 imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis = 0)
