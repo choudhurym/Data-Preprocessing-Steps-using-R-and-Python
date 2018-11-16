@@ -25,10 +25,11 @@ y = dataset.iloc[:, 3].values
 #Imputer is a class and sklearn is from a scikit-learn library
 #To fill the missing data with median and most_frquent value we just only need to modify strategy
 #axis is the parameter, if axis = 1, then impute across all rows but if axis = 0, then impute acrosss all columns
+#preprocessing and transform are the methods
 from sklearn.preprocessing import Imputer
 imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis = 0)  
-imputer = imputer.fit(X[:, 1:3])
-X[:, 1:3] = imputer.transform(X[:, 1:3])
+imputer = imputer.fit(X[:, 1:3]) #by writing 'imputer' object in this line, we just fitted the imputer object into data set
+X[:, 1:3] = imputer.transform(X[:, 1:3]) #we are replacing missing data by the mean of the column
 
 #Encoding catergorial variable
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
